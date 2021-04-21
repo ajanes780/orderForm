@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, sans-serif;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  background-color: #d3d3d394;
+  text-align: center;
+  h1 {
+    text-align: center;
+    margin: 10px;
+  }
+  h3 {
+    text-align: center;
+    margin: 10px;
+  }
+}
+
+.wrapper-light {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  background-color: white;
+  box-shadow: 1px 15px 20px rgba(134, 129, 129, 0.7);
+  border-radius: 15px;
+}
