@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Orders } from 'src/app/models/Orders';
 import { OrderserviceService } from '../../services/orderervice.service';
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -32,14 +33,16 @@ export class MenuComponent implements OnInit {
   potato: boolean = false;
   orderNumber: any = { order: '' };
   @ViewChild('menuForm') form: any;
-
-  constructor(private orderService: OrderserviceService) {
-    this.getOrderNumber();
-  }
+  title = 'appBootstrap';
+  constructor(private orderService: OrderserviceService) {}
 
   ngOnInit() {
     this.order = this.orderService.getOrders();
     this.showBurgersMenu = this.orderService.getShowBurgers();
+
+    this.showSteakMenu = this.orderService.getShowSteakMenu();
+
+    this.getOrderNumber();
   }
 
   getOrderNumber() {
@@ -49,14 +52,14 @@ export class MenuComponent implements OnInit {
   }
 
   showBurgers() {
-    this.showBurgersMenu = !this.showBurgersMenu;
+    this.showBurgersMenu = this.orderService.changeBurgerStatus();
     this.showSteakMenu = false;
     this.fries = false;
     this.salads = false;
   }
 
   showSteaks() {
-    this.showSteakMenu = !this.showSteakMenu;
+    this.showSteakMenu = this.orderService.changeSteakStatus();
     this.showBurgersMenu = false;
     this.fries = false;
     this.salads = false;
@@ -82,9 +85,8 @@ export class MenuComponent implements OnInit {
 
   onSubmit({ value }) {
     console.log('this is value ', value);
-
+    console.log('this is order', this.order);
     this.orders.unshift(value);
-    value.orderDate = new Date();
     this.form.reset();
   }
 }

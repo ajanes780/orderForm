@@ -1,0 +1,80 @@
+<div class="form-group">
+  <h3>Any Special Requests</h3>
+  <textarea
+    [(ngModel)]="order.specialInstructions"
+    name="specialInstructions"
+    class="form-control"
+    id="exampleFormControlTextarea1"
+    rows="3"
+    placeholder="Any special requests?"
+  >
+  </textarea>
+</div>
+
+<Button
+  type="submit"
+  class="btn btn-success btn-lg mb-3"
+  (click)="open(mymodal)"
+>
+  Submit Your Order
+</Button>
+
+<ng-template #mymodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Thank You For Your Order</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Order: {{ orderNumber.order }}
+    <ul class="list-group">
+      <li class="list-group-item">
+        {{ order.burgerType }} {{ order.ketchup ? "ketchup" : "" }}&nbsp;
+        {{ order.mustard ? "Mustard" : "" }}&nbsp;
+        {{ order.lettuce ? "Lettuce" : "" }}&nbsp;
+        {{ order.tomato ? "Tomato" : "" }}&nbsp; {{ order.burgerType ? "X" : ""
+        }}{{ order.howMany }}
+      </li>
+
+      <li class="list-group-item">
+        {{ order.steakType }}{{ order.doneness }}
+        {{ order.SteakType ? " X" : "" }} {{ order.howManySteaks }}
+      </li>
+      <li class="list-group-item">
+        {{ order.nameOfSide }} {{ order.nameOfSide ? " With" : "" }}
+        {{ order.dressingType }}
+      </li>
+      <li class="list-group-item">
+        {{ order.nameOfFries }} {{ order.nameOfFries ? "X " : "" }}
+        {{ order.howManyFries }}
+      </li>
+      <li class="list-group-item">
+        {{ order.bakedPotatoInstructions ? " Baked Potato X" : "" }}
+        {{ order.bakedPotatoInstructions }}
+      </li>
+      <li class="list-group-item">
+        {{
+          order.specialInstructions
+            ? "Your Special instructions are important to us will make sure we take care of  "
+            : ""
+        }}
+        {{ order.specialInstructions }}
+      </li>
+    </ul>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="modal.close('Save click')"
+    >
+      Ok
+    </button>
+  </div>
+</ng-template>

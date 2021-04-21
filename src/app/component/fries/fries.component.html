@@ -1,0 +1,44 @@
+<h3>Can We Large Size Your Fries ?</h3>
+<div class="input-group mb-3">
+  <select
+    [(ngModel)]="order.nameOfFries"
+    [ngClass]="{
+      'is-invalid': menuFriesSelector.errors && menuFriesSelector.touched
+    }"
+    #menuFriesSelector="ngModel"
+    name="nameOfSide"
+    class="form-control"
+    id="friesSelector"
+    required
+  >
+    <option>None</option>
+    <option>Large Fries</option>
+    <option>Small Fries</option>
+  </select>
+
+  <select
+    [(ngModel)]="order.howManyFries"
+    [ngClass]="{
+      'is-invalid': menuFriesSelectorAmount.errors && menuFriesSelector.touched
+    }"
+    #menuFriesSelectorAmount="ngModel"
+    name="amountOfSide"
+    class="form-control-prepend"
+    id="frieSlectorAmount"
+    required
+  >
+    <option>0</option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+  </select>
+  <div [hidden]="!menuFriesSelector.errors?.required" class="invalid-feedback">
+    <h4>Please Pick a Size Of Fries</h4>
+  </div>
+  <div
+    [hidden]="!menuFriesSelectorAmount.errors?.required"
+    class="invalid-feedback"
+  >
+    <h4>How Many Fries Would You Like</h4>
+  </div>
+</div>

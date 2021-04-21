@@ -52,44 +52,12 @@
 
   <!--  The fries drop downs  -->
   <div class="card card-body mb3" *ngIf="showBurgersMenu && fries">
-    <h3>Can We Large Size Your Fries ?</h3>
-    <div class="input-group mb-3">
-      <select
-        [(ngModel)]="order.nameOfSide"
-        name="nameOfSide"
-        class="form-control"
-        id="friesSelector"
-      >
-        <option>Large Fries</option>
-        <option>Small Fries</option>
-      </select>
-
-      <select
-        [(ngModel)]="order.amountOfSide"
-        name="amountOfSide"
-        class="form-control-prepend"
-        id="frieSlectorAmount"
-      >
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-      </select>
-    </div>
+    <app-fries></app-fries>
   </div>
 
   <!-- Baked Potato drop down options  -->
   <div class="card card-body" *ngIf="potato">
-    <h3>How Many Baked Potatoes Would You Like ?</h3>
-    <div class="input-group">
-      <textarea
-        [(ngModel)]="order.bakedPotatoInstructions"
-        name="BakedPotatoInstructions"
-        class="form-control"
-        id="exampleFormControlTextarea1"
-        rows="3"
-        placeholder="How Many Would You Like?"
-      ></textarea>
-    </div>
+    <app-bakedpotato></app-bakedpotato>
   </div>
 
   <!-- salad drop down options  -->
@@ -98,57 +66,11 @@
     class="card card-body mb3"
     *ngIf="(showBurgers || showSteakMenu) && salads"
   >
-    <h3>What Kind Of Salad Would you Like ?</h3>
-    <div class="input-group mb-3">
-      <select
-        [(ngModel)]="order.nameOfSide"
-        name="nameOfSalad"
-        class="form-control"
-        id="friesSelector"
-      >
-        <option>Garden</option>
-        <option>Cesar</option>
-      </select>
-
-      <select
-        [(ngModel)]="order.dressingType"
-        name="dressingType"
-        class="form-control-prepend"
-        id="frieSlectorAmount"
-      >
-        <option>Balsamic Dressing</option>
-        <option>Caesar Dressing</option>
-      </select>
-      <select
-        [(ngModel)]="order.amountOfSide"
-        name="HowManySalads"
-        class="form-control-prepend"
-        id="frieSlectorAmount"
-      >
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-      </select>
-    </div>
+    <app-salad></app-salad>
   </div>
 
   <div class="card card-body mb-3" *ngIf="showBurgersMenu || showSteakMenu">
-    <div class="form-group">
-      <h3>Any Special Requests</h3>
-      <textarea
-        [(ngModel)]="order.specialInstructions"
-        name="specialInstructions"
-        class="form-control"
-        id="exampleFormControlTextarea1"
-        rows="3"
-        placeholder="Any special requests?"
-      >
-      </textarea>
-    </div>
-
-    <Button type="submit" class="btn btn-success btn-lg mb-3">
-      Submit Your Order
-    </Button>
+    <app-specialreq></app-specialreq>
   </div>
 </form>
 
@@ -156,24 +78,38 @@
   <h3>Is that everything for you today ?</h3>
   <h3>Your Current Order</h3>
   Order: {{ orderNumber.order }}
+
   <ul class="list-group">
     <li class="list-group-item">
-      Items: {{ order.burgerType }}&nbsp;
-      {{ order.ketchup ? "ketchup" : "" }}&nbsp;
+      {{ order.burgerType }} {{ order.ketchup ? "ketchup" : "" }}&nbsp;
       {{ order.mustard ? "Mustard" : "" }}&nbsp;
       {{ order.lettuce ? "Lettuce" : "" }}&nbsp;
-      {{ order.tomato ? "Tomato" : "" }}&nbsp;
-
-      {{ order.burgerType || order.SteakType ? "X" : "" }}
-      {{ order.amountOfSide }}
-      {{ order.steakType }} {{ order.doneness }}
+      {{ order.tomato ? "Tomato" : "" }}&nbsp; {{ order.burgerType ? "X" : ""
+      }}{{ order.howMany }}
     </li>
     <li class="list-group-item">
-      Sides:
-      {{ order.nameOfSide }}
+      {{ order.steakType }}{{ order.doneness }}
+      {{ order.SteakType ? " X" : "" }} {{ order.howManySteaks }}
+    </li>
+    <li class="list-group-item">
+      {{ order.nameOfSide }} {{ order.nameOfSide ? " With" : "" }}
       {{ order.dressingType }}
+    </li>
+    <li class="list-group-item">
+      {{ order.nameOfFries }} {{ order.nameOfFries ? "X " : "" }}
+      {{ order.howManyFries }}
+    </li>
+    <li class="list-group-item">
       {{ order.bakedPotatoInstructions ? " Baked Potato X" : "" }}
       {{ order.bakedPotatoInstructions }}
+    </li>
+    <li class="list-group-item">
+      {{
+        order.specialInstructions
+          ? "Your Special instructions are important to us will make sure we take care of  "
+          : ""
+      }}
+      {{ order.specialInstructions }}
     </li>
   </ul>
 </div>

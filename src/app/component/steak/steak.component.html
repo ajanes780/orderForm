@@ -20,9 +20,9 @@
     [(ngModel)]="order.doneness"
     [ngClass]="{
       'is-invalid':
-        menuSteakSelectorAmount.errors && menuSteakSelectorAmount.touched
+        menuSteakSelectorDoneness.errors && menuSteakSelectorDoneness.touched
     }"
-    #menuSteakSelectorAmount="ngModel"
+    #menuSteakSelectorDoneness="ngModel"
     name="doneness"
     id=""
     class="input-group-prepend"
@@ -32,6 +32,25 @@
     <option>Medium</option>
     <option>Well Done</option>
   </select>
+
+  <select
+    [(ngModel)]="order.howManySteaks"
+    [ngClass]="{
+      'is-invalid':
+        menuSteakSelectorAmount.errors && menuSteakSelectorAmount.touched
+    }"
+    #menuSteakSelectorAmount="ngModel"
+    name="HowManySalads"
+    class="form-control-prepend"
+    id="frieSlectorAmount"
+    required
+  >
+    <option>0</option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+  </select>
+
   <div
     [hidden]="!menuSteakSelectorAmount.errors?.required"
     class="invalid-feedback"
@@ -41,5 +60,12 @@
 
   <div [hidden]="!menuSteakSelector.errors?.required" class="invalid-feedback">
     <h4>Please Pick A Steak</h4>
+  </div>
+
+  <div
+    [hidden]="!menuSteakSelectorDoneness.errors?.required"
+    class="invalid-feedback"
+  >
+    <h5>Please Pick a Doneness</h5>
   </div>
 </div>

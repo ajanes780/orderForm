@@ -11,7 +11,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { OrderserviceService } from '../app/services/orderervice.service';
 import { BurgersComponent } from './component/burgers/burgers.component';
 import { SteakComponent } from './component/steak/steak.component';
-import { SidesComponent } from './component/sides/sides.component';
+import { FriesComponent } from './component/fries/fries.component';
+import { BakedpotatoComponent } from './component/bakedpotato/bakedpotato.component';
+import { SaladComponent } from './component/salad/salad.component';
+import { SpecialreqComponent } from './component/specialreq/specialreq.component';
+import { PopupComponent } from './component/popup/popup.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +23,11 @@ import { SidesComponent } from './component/sides/sides.component';
     ModelComponent,
     BurgersComponent,
     SteakComponent,
-    SidesComponent,
+    FriesComponent,
+    BakedpotatoComponent,
+    SaladComponent,
+    SpecialreqComponent,
+    PopupComponent,
   ],
   imports: [
     BrowserModule,

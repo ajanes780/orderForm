@@ -7,7 +7,10 @@ export interface Orders {
   tomato?: boolean;
   steakType?: string;
   doneness?: string;
+  howManySteaks?: String;
   nameOfSide?: string;
+  nameOfFries?: String;
+  howManyFries?: String;
   amountOfSide?: string;
   bakedPotatoInstructions: String;
   specialInstructions: String;

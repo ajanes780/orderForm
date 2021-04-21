@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SidesComponent } from './sides.component';
+import { SpecialreqComponent } from './specialreq.component';
 
-describe('SidesComponent', () => {
-  let component: SidesComponent;
-  let fixture: ComponentFixture<SidesComponent>;
+describe('SpecialreqComponent', () => {
+  let component: SpecialreqComponent;
+  let fixture: ComponentFixture<SpecialreqComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SidesComponent ]
+      declarations: [ SpecialreqComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SidesComponent);
+    fixture = TestBed.createComponent(SpecialreqComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

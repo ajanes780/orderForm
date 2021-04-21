@@ -1,0 +1,56 @@
+<h3>What Kind Of Salad Would you Like ?</h3>
+<div class="input-group mb-3">
+  <select
+    [(ngModel)]="order.nameOfSide"
+    [ngClass]="{
+      'is-invalid': menuSaladSelector.errors && menuSaladSelector.touched
+    }"
+    #menuSaladSelector="ngModel"
+    name="nameOfSalad"
+    class="form-control"
+    id="friesSelector"
+    required
+  >
+    <option>None</option>
+    <option>Garden Salad</option>
+    <option>Cesar Salad</option>
+  </select>
+
+  <select
+    [(ngModel)]="order.dressingType"
+    name="dressingType"
+    class="form-control-prepend"
+    id="frieSlectorAmount"
+  >
+    <option>Balsamic Dressing</option>
+    <option>Caesar Dressing</option>
+  </select>
+  <select
+    [(ngModel)]="order.amountOfSide"
+    [ngClass]="{
+      'is-invalid':
+        menuSaladSelectorAmount.errors && menuSaladSelectorAmount.touched
+    }"
+    #menuSaladSelectorAmount="ngModel"
+    name="HowManySalads"
+    class="form-control-prepend"
+    id="frieSlectorAmount"
+    required
+  >
+    <option>0</option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+  </select>
+
+  <div [hidden]="!menuSaladSelector.errors?.required" class="invalid-feedback">
+    <h5>Please Pick a Salad</h5>
+  </div>
+
+  <div
+    [hidden]="!menuSaladSelectorAmount.errors?.required"
+    class="invalid-feedback"
+  >
+    <h5>Please Pick a Quantity</h5>
+  </div>
+</div>

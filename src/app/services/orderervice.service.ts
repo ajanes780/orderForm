@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { faLeaf } from '@fortawesome/free-solid-svg-icons';
 import { Orders } from '../models/Orders';
-
+import { of } from 'rxjs';
+// import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
 export class OrderserviceService {
   orders: Orders[];
+  data: Observable<any>;
   order: Orders = {
     burgerType: '',
     howMany: null,
@@ -27,7 +30,7 @@ export class OrderserviceService {
   showSteakMenu: boolean = false;
   fries: boolean = false;
   salads: boolean = false;
-  potato = false;
+  potato: boolean = false;
 
   constructor() {
     this.orders = [];
@@ -35,54 +38,41 @@ export class OrderserviceService {
     this.showSteakMenu = false;
     this.fries = false;
     this.salads = false;
-    this.potato;
+    this.potato = false;
+  }
+
+  getData() {
+    this.data = new Observable((observable) => {});
+    return this.data;
+  }
+  // update and change
+  getSaladStatus(): Observable<any> {
+    return of(this.salads);
+  }
+
+  changeSaladStats() {
+    console.log('here');
+    this.salads = !this.salads;
+    return this.salads;
   }
 
   getShowBurgers() {
+    return this.showBurgersMenu;
+  }
+
+  changeBurgerStatus() {
     this.showBurgersMenu = !this.showBurgersMenu;
-    this.showSteakMenu = false;
-    this.fries = false;
-    this.salads = false;
-    return (
-      this.showSteakMenu,
-      this.showBurgersMenu,
-      this.fries,
-      this.salads,
-      this.potato
-    );
+    return this.showBurgersMenu;
   }
 
   getShowSteakMenu() {
-    this.showSteakMenu = !this.showSteakMenu;
-    this.showBurgersMenu = false;
-    this.fries = false;
-    this.salads = false;
-    return (
-      this.showSteakMenu,
-      this.showBurgersMenu,
-      this.fries,
-      this.salads,
-      this.potato
-    );
+    return this.showSteakMenu;
   }
 
-  // getShowPotato() {
-  //     this.potato = !this.potato;
-  //     this.salads = false;
-  //     this.fries = false;
-  //     return this.potato,
-  // }
-
-  // getShowSalad(){
-  //     this.salads = !this.salads;
-  //     this.potato = false;
-  //     this.fries = false;
-  //     return (
-  //       this.salads,
-  //       this.potato = false,
-  //       this.fries = false,
-  //     )
-  // }
+  changeSteakStatus() {
+    this.showSteakMenu = !this.showSteakMenu;
+    return this.showSteakMenu;
+  }
 
   getOrders() {
     console.log('service running ');

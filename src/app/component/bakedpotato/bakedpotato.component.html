@@ -1,0 +1,20 @@
+<h3>How Many Baked Potatoes Would You Like ?</h3>
+<div class="input-group">
+  <textarea
+    [(ngModel)]="order.bakedPotatoInstructions"
+    [ngClass]="{
+      'is-invalid': menuPotatoSelector.errors && menuPotatoSelector.touched
+    }"
+    name="BakedPotatoInstructions"
+    #menuPotatoSelector="ngModel"
+    class="form-control"
+    id="exampleFormControlTextarea1"
+    rows="3"
+    placeholder="How Many Would You Like?"
+    required
+  ></textarea>
+
+  <div [hidden]="!menuPotatoSelector.errors?.required" class="invalid-feedback">
+    <h3>How many potatoes would you like ?</h3>
+  </div>
+</div>
