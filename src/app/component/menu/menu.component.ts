@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Orders } from 'src/app/models/Orders';
-
+import { OrderserviceService } from '../../services/orderervice.service';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -24,6 +24,7 @@ export class MenuComponent implements OnInit {
     dressingType: '',
     orderDate: '',
   };
+
   showBurgersMenu: boolean = false;
   showSteakMenu: boolean = false;
   fries: boolean = false;
@@ -32,12 +33,13 @@ export class MenuComponent implements OnInit {
   orderNumber: any = { order: '' };
   @ViewChild('menuForm') form: any;
 
-  constructor() {
+  constructor(private orderService: OrderserviceService) {
     this.getOrderNumber();
   }
 
   ngOnInit() {
-    this.orders = [];
+    this.order = this.orderService.getOrders();
+    this.showBurgersMenu = this.orderService.getShowBurgers();
   }
 
   getOrderNumber() {

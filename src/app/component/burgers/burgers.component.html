@@ -1,0 +1,99 @@
+<h3>Select your Burger</h3>
+<div class="form-group">
+  <div class="input-group mb-3">
+    <select
+      [(ngModel)]="order.burgerType"
+      [ngClass]="{
+        'is-invalid': menuBurgerSelector.errors && menuBurgerSelector.touched
+      }"
+      name="burgerType1"
+      #menuBurgerSelector="ngModel"
+      class="form-control"
+      id="burgerSelector"
+      required
+    >
+      <option>Big Kuhana Burger</option>
+      <option>Royal With Cheese</option>
+    </select>
+
+    <select
+      [(ngModel)]="order.howMany"
+      [ngClass]="{
+        'is-invalid':
+          menuBurgerSelectorAmount.errors && menuBurgerSelectorAmount.touched
+      }"
+      #menuBurgerSelectorAmount="ngModel"
+      name="howManyMains"
+      class="form-control-prepend"
+      id="burgerSelectorAmount"
+      required
+    >
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+    </select>
+
+    <div
+      [hidden]="!menuBurgerSelector.errors?.required"
+      class="invalid-feedback"
+    >
+      <h4>Please Pick a Burger</h4>
+    </div>
+
+    <div
+      [hidden]="!menuBurgerSelectorAmount.errors?.required"
+      class="invalid-feedback"
+    >
+      <h4>Please Pick a Quantity</h4>
+    </div>
+  </div>
+
+  <div class="imput-group d-flex justify-content-around mb-3">
+    <div class="form-check">
+      <input
+        [(ngModel)]="order.ketchup"
+        name="ketchup"
+        class="form-check-input"
+        type="checkbox"
+        value=""
+        id="flexCheckDefault"
+      />
+      <label class="form-check-label" for="flexCheckDefault"> Ketchup </label>
+    </div>
+
+    <div class="form-check">
+      <input
+        [(ngModel)]="order.mustard"
+        name="mustard"
+        class="form-check-input"
+        type="checkbox"
+        value=""
+        id="flexCheckDefault"
+      />
+      <label class="form-check-label" for="flexCheckDefault"> Mustard </label>
+    </div>
+
+    <div class="form-check">
+      <input
+        [(ngModel)]="order.lettuce"
+        name="lettuce"
+        class="form-check-input"
+        type="checkbox"
+        value=""
+        id="flexCheckDefault"
+      />
+      <label class="form-check-label" for="flexCheckDefault"> Lettuce </label>
+    </div>
+    <div class="form-check">
+      <input
+        [(ngModel)]="order.tomato"
+        name="tomato"
+        class="form-check-input"
+        type="checkbox"
+        value=""
+        id="flexCheckDefault"
+      />
+      <label class="form-check-label" for="flexCheckDefault"> Tomato </label>
+    </div>
+  </div>
+</div>

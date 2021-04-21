@@ -1,0 +1,45 @@
+<h3>Please Select Your Steak</h3>
+
+<div class="input-group mb-3">
+  <select
+    [(ngModel)]="order.steakType"
+    [ngClass]="{
+      'is-invalid': menuSteakSelector.errors && menuSteakSelector.touched
+    }"
+    #menuSteakSelector="ngModel"
+    name="steakType"
+    id=""
+    class="form-control"
+    required
+  >
+    <option>Porter House</option>
+    <option>T-Bone</option>
+  </select>
+
+  <select
+    [(ngModel)]="order.doneness"
+    [ngClass]="{
+      'is-invalid':
+        menuSteakSelectorAmount.errors && menuSteakSelectorAmount.touched
+    }"
+    #menuSteakSelectorAmount="ngModel"
+    name="doneness"
+    id=""
+    class="input-group-prepend"
+    required
+  >
+    <option>Rare</option>
+    <option>Medium</option>
+    <option>Well Done</option>
+  </select>
+  <div
+    [hidden]="!menuSteakSelectorAmount.errors?.required"
+    class="invalid-feedback"
+  >
+    <h4>Please Pick A Quantity</h4>
+  </div>
+
+  <div [hidden]="!menuSteakSelector.errors?.required" class="invalid-feedback">
+    <h4>Please Pick A Steak</h4>
+  </div>
+</div>
