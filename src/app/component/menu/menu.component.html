@@ -115,6 +115,7 @@
       </div>
 
       <li class="list-group-item">
+        {{ form.value.burgerType1 }}
         {{ order.burgerType }} {{ order.ketchup ? "ketchup" : "" }}&nbsp;
         {{ order.mustard ? "Mustard" : "" }}&nbsp;
         {{ order.lettuce ? "Lettuce" : "" }}&nbsp;
@@ -147,6 +148,7 @@
       </li>
     </ul>
     <br />
+
     <Button
       type="submit"
       [disabled]="!menuForm.form.valid"

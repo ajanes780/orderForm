@@ -1,12 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Orders } from 'src/app/models/Orders';
 import { OrderserviceService } from '../../services/orderervice.service';
+import { ControlContainer, NgForm } from '@angular/forms';
 
 //  This really is the heart of form here controling the bigger movements and allowing the drop in of new menu items as needed
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
+  viewProviders: [{ provide: ControlContainer, useExisting: NgForm }],
 })
 export class MenuComponent implements OnInit {
   orders: Orders[];
