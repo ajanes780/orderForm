@@ -86,12 +86,18 @@
     *ngIf="showBurgersMenu || showSteakMenu"
   >
     <div class="background-color-wrapper">
-      <h3>Is that everything for you today ?</h3>
+      <h3>
+        {{
+          submitted
+            ? "Thank You For Your Order "
+            : "Is that everything for you today ?"
+        }}
+      </h3>
       <h3>Your Current Order</h3>
     </div>
     Order: {{ orderNumber.order }}
 
-    <ul class="list-group">
+    <ul class="list-group" *ngIf="submitted">
       <li class="list-group-item">
         {{ order.burgerType }} {{ order.ketchup ? "ketchup" : "" }}&nbsp;
         {{ order.mustard ? "Mustard" : "" }}&nbsp;

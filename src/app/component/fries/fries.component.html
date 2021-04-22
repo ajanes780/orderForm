@@ -9,6 +9,7 @@
     name="nameOfSide"
     class="form-control"
     id="friesSelector"
+    [class.bg-success]="order.nameOfFries"
     required
   >
     <option>None</option>
@@ -22,8 +23,9 @@
       'is-invalid': menuFriesSelectorAmount.errors && menuFriesSelector.touched
     }"
     #menuFriesSelectorAmount="ngModel"
-    name="amountOfSide"
+    name="howManyFires"
     class="form-control-prepend"
+    [class.bg-success]="order.howManyFries"
     id="frieSlectorAmount"
     required
   >

@@ -26,21 +26,9 @@ export class SpecialreqComponent implements OnInit {
     dressingType: '',
     orderDate: '',
   };
-  constructor(
-    private orderService: OrderserviceService,
-    private modalService: NgbModal
-  ) {}
+  constructor(private orderService: OrderserviceService) {}
 
   ngOnInit() {
     this.order = this.orderService.getOrders();
-  }
-
-  open(content) {
-    if (this.order.burgerType === '') {
-      // Totally should build another pop up with more time
-      alert('Please make a selection ');
-    } else {
-      this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
-    }
   }
 }

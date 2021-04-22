@@ -31,9 +31,11 @@ export class MenuComponent implements OnInit {
   fries: boolean = false;
   salads: boolean = false;
   potato: boolean = false;
+  submitted: boolean = false;
   orderNumber: any = { order: '' };
   @ViewChild('menuForm') form: any;
 
+  // sets up our service to begin ordering
   constructor(private orderService: OrderserviceService) {}
 
   ngOnInit() {
@@ -85,7 +87,8 @@ export class MenuComponent implements OnInit {
 
   // logic to submit for now just logs order object
   onSubmit({ value, valid }: { value: Orders; valid: boolean }) {
-    console.log(`value`, value);
+    this.submitted = !this.submitted;
+    // console.log(`value`, value);
     console.log('this is order', this.order);
     this.form.reset();
   }
