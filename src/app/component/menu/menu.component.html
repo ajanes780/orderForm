@@ -126,7 +126,8 @@
       </li>
       <li class="list-group-item" *ngIf="order.nameOfSide">
         {{ order.nameOfSide }} {{ order.nameOfSide ? " With" : "" }}
-        {{ order.dressingType }}
+        {{ order.dressingType }} {{ order.amountOfSide ? "X" : "" }}
+        {{ order.amountOfSide }}
       </li>
       <li class="list-group-item" *ngIf="order.nameOfFries">
         {{ order.nameOfFries }} {{ order.nameOfFries ? "X " : "" }}
