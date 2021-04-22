@@ -108,11 +108,12 @@
 
     <!-- Once order Is Submitted display this information  -->
     <ul class="list-group" *ngIf="submitted">
-      <h3>Your Current Order</h3>
-      Order:
-      {{
-        orderNumber.order
-      }}
+      <div class="background-color-wrapper">
+        <h3>Your Current Order</h3>
+
+        Order:{{ orderNumber.order }}
+      </div>
+
       <li class="list-group-item">
         {{ order.burgerType }} {{ order.ketchup ? "ketchup" : "" }}&nbsp;
         {{ order.mustard ? "Mustard" : "" }}&nbsp;
@@ -145,6 +146,7 @@
         {{ order.specialInstructions }}
       </li>
     </ul>
+    <br />
     <Button
       type="submit"
       [disabled]="!menuForm.form.valid"
