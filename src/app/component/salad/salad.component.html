@@ -49,13 +49,17 @@
   </select>
 
   <div [hidden]="!menuSaladSelector.errors?.required" class="invalid-feedback">
-    <h5>Please Pick a Salad</h5>
+    <div class="background-color-wrapper">
+      <h5>Please Pick a Salad</h5>
+    </div>
   </div>
 
   <div
     [hidden]="!menuSaladSelectorAmount.errors?.required"
     class="invalid-feedback"
   >
-    <h5>Please Pick a Quantity</h5>
+    <div class="background-color-wrapper">
+      <h5>Please Pick a Quantity</h5>
+    </div>
   </div>
 </div>

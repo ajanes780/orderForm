@@ -49,7 +49,7 @@
           type="button"
           class="btn btn-success btn-lg mb-3"
           (click)="showSalads()"
-          [disabled]="fires"
+          [disabled]="fries"
           [class.bg-dark]="fries"
         >
           Salads
@@ -58,8 +58,8 @@
           type="button"
           class="btn btn-success btn-lg mb-3"
           (click)="showPotato()"
-          [disabled]="showBurgersMenu"
-          [class.bg-dark]="showSteakMenu"
+          [disabled]="salads"
+          [class.bg-dark]="salads"
           required
           *ngIf="showSteakMenu"
         >
@@ -100,16 +100,19 @@
       <h3>
         {{
           submitted
-            ? "Thank You For Your Order "
-            : "Is that everything for you today ?"
+            ? " Thank You For Your Order "
+            : "Is that everything for you today ? "
         }}
       </h3>
-      <h3>Your Current Order</h3>
     </div>
-    Order: {{ orderNumber.order }}
 
     <!-- Once order Is Submitted display this information  -->
     <ul class="list-group" *ngIf="submitted">
+      <h3>Your Current Order</h3>
+      Order:
+      {{
+        orderNumber.order
+      }}
       <li class="list-group-item">
         {{ order.burgerType }} {{ order.ketchup ? "ketchup" : "" }}&nbsp;
         {{ order.mustard ? "Mustard" : "" }}&nbsp;
@@ -144,7 +147,7 @@
     </ul>
     <Button
       type="submit"
-      [disabled]="menuForm.invalid"
+      [disabled]="!menuForm.form.valid"
       class="btn btn-success btn-lg mb-3"
     >
       Submit Your Order

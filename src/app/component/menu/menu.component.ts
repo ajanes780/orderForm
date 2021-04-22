@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Orders } from 'src/app/models/Orders';
 import { OrderserviceService } from '../../services/orderervice.service';
 
+//  This really is the heart of form here controling the bigger movements and allowing the drop in of new menu items as needed
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -87,8 +88,11 @@ export class MenuComponent implements OnInit {
 
   // logic to submit for now just logs order object
   onSubmit({ value, valid }: { value: Orders; valid: boolean }) {
+    if (!valid) {
+      console.log('form not submitted');
+    }
     this.submitted = !this.submitted;
-    // console.log(`value`, value);
+    console.log(`value`, value);
     console.log('this is order', this.order);
     this.form.reset();
   }

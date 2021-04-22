@@ -36,13 +36,18 @@
     <option>2</option>
     <option>3</option>
   </select>
+
   <div [hidden]="!menuFriesSelector.errors?.required" class="invalid-feedback">
-    <h4>Please Pick a Size Of Fries</h4>
+    <div class="background-color-wrapper">
+      <h4>Please Pick a Size Of Fries</h4>
+    </div>
   </div>
   <div
     [hidden]="!menuFriesSelectorAmount.errors?.required"
     class="invalid-feedback"
   >
-    <h4>How Many Fries Would You Like</h4>
+    <div class="background-color-wrapper">
+      <h4>How Many Fries Would You Like</h4>
+    </div>
   </div>
 </div>
