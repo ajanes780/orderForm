@@ -99,6 +99,7 @@
     </div>
     Order: {{ orderNumber.order }}
 
+    <!-- Once order Is Submitted display this information  -->
     <ul class="list-group" *ngIf="submitted">
       <li class="list-group-item">
         {{ order.burgerType }} {{ order.ketchup ? "ketchup" : "" }}&nbsp;

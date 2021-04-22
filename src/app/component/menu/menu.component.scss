@@ -52,3 +52,20 @@
   display: flex;
   color: black;
 }
+
+@media only screen and (max-width: 768px) {
+  Button {
+    margin: 20px;
+    padding: 15px 10px;
+    animation: bounce 2s ease;
+    animation-iteration-count: infinite;
+    border: beige;
+    overflow: hidden;
+    background-color: rgba(106, 105, 182, 0.671);
+  }
+  .card-body {
+    background-color: transparent;
+    padding: 15px;
+    flex-direction: column;
+  }
+}
