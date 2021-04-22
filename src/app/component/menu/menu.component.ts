@@ -94,7 +94,12 @@ export class MenuComponent implements OnInit {
       console.log('form not submitted');
     }
     this.submitted = !this.submitted;
+
+    // you can view the service and the form data match
     console.log(`value`, value);
     console.log('this is order', this.order);
+    // we can use a form reset here to rest the form currently the service is mapped to display the data
+    //  I could refactor the could to use the submitted data as well depending on your preference
+    // this.form.reset()
   }
 }

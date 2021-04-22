@@ -49,8 +49,8 @@
           type="button"
           class="btn btn-success btn-lg mb-3"
           (click)="showSalads()"
-          [disabled]="fries"
-          [class.bg-dark]="fries"
+          [disabled]="fries || potato"
+          [class.bg-dark]="fries || potato"
         >
           Salads
         </Button>
