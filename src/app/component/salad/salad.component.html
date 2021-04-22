@@ -1,4 +1,6 @@
-<h3>What Kind Of Salad Would you Like ?</h3>
+<div class="background-color-wrapper">
+  <h3>What Kind Of Salad Would you Like ?</h3>
+</div>
 <div class="input-group mb-3">
   <select
     [(ngModel)]="order.nameOfSide"
@@ -8,7 +10,8 @@
     #menuSaladSelector="ngModel"
     name="nameOfSalad"
     class="form-control"
-    id="friesSelector"
+    id="saladSelector"
+    [class.bg-success]="order.nameOfSide"
     required
   >
     <option>None</option>
@@ -20,7 +23,8 @@
     [(ngModel)]="order.dressingType"
     name="dressingType"
     class="form-control-prepend"
-    id="frieSlectorAmount"
+    id="saladDressingType"
+    [class.bg-success]="order.dressingType"
   >
     <option>Balsamic Dressing</option>
     <option>Caesar Dressing</option>
@@ -34,7 +38,8 @@
     #menuSaladSelectorAmount="ngModel"
     name="HowManySalads"
     class="form-control-prepend"
-    id="frieSlectorAmount"
+    id="howManysalads"
+    [class.bg-success]="order.amountOfSide"
     required
   >
     <option>0</option>

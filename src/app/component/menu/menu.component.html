@@ -30,31 +30,33 @@
 
   <!--  buttons to select sides in  the menu flow  -->
   <div class="wrapper-menu" *ngIf="showBurgersMenu || showSteakMenu">
-    <h3>Please Pick Your Side</h3>
-    <div class="btn-wrapper">
-      <Button
-        *ngIf="showBurgersMenu"
-        type="button"
-        class="btn btn-success btn-lg mb-3"
-        (click)="showFries()"
-      >
-        Fries
-      </Button>
-      <Button
-        type="button"
-        class="btn btn-success btn-lg mb-3"
-        (click)="showSalads()"
-      >
-        Salads
-      </Button>
-      <Button
-        type="button"
-        class="btn btn-success btn-lg mb-3"
-        (click)="showPotato()"
-        *ngIf="showSteakMenu"
-      >
-        Baked Potato
-      </Button>
+    <div class="background-color-wrapper-special">
+      <h3>Please Pick Your Side</h3>
+      <div class="btn-wrapper">
+        <Button
+          *ngIf="showBurgersMenu"
+          type="button"
+          class="btn btn-success btn-lg mb-3"
+          (click)="showFries()"
+        >
+          Fries
+        </Button>
+        <Button
+          type="button"
+          class="btn btn-success btn-lg mb-3"
+          (click)="showSalads()"
+        >
+          Salads
+        </Button>
+        <Button
+          type="button"
+          class="btn btn-success btn-lg mb-3"
+          (click)="showPotato()"
+          *ngIf="showSteakMenu"
+        >
+          Baked Potato
+        </Button>
+      </div>
     </div>
   </div>
 

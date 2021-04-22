@@ -1,5 +1,5 @@
 @import "~bootstrap/scss/bootstrap";
-
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -24,6 +24,10 @@
     text-align: center;
     margin: 10px;
     text-transform: capitalize;
+  }
+  .styled-text {
+    font-family: "Dancing Script", cursive;
+    font-size: 50px !important;
   }
 }
 

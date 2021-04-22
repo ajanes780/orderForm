@@ -1,4 +1,6 @@
-<h3>How Many Baked Potatoes Would You Like ?</h3>
+<div class="background-color-wrapper">
+  <h3>How Many Baked Potatoes Would You Like ?</h3>
+</div>
 <div class="input-group">
   <textarea
     [(ngModel)]="order.bakedPotatoInstructions"
@@ -11,6 +13,7 @@
     id="exampleFormControlTextarea1"
     rows="3"
     placeholder="How Many Would You Like?"
+    [class.bg-success]="order.bakedPotatoInstructions"
     required
   ></textarea>
 

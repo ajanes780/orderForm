@@ -41,18 +41,18 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     this.order = this.orderService.getOrders();
     this.showBurgersMenu = this.orderService.getShowBurgers();
-
     this.showSteakMenu = this.orderService.getShowSteakMenu();
 
     this.getOrderNumber();
   }
 
+  //  generate random order numbers
   getOrderNumber() {
     let number = Math.floor(Math.random() * 100 + 1);
-
     this.orderNumber = { order: number };
   }
 
+  // helper functions for different views
   showBurgers() {
     this.showBurgersMenu = this.orderService.changeBurgerStatus();
     this.showSteakMenu = false;
