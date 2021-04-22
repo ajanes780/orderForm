@@ -2,7 +2,6 @@
   <div class="btn-wrapper">
     <Button
       class="btn btn-success btn-lg mb-3"
-      [disabled]="showSteakMenu"
       [class.bg-dark]="showSteakMenu"
       (click)="showBurgers()"
     >
@@ -10,7 +9,6 @@
     </Button>
     <Button
       class="btn btn-lg btn-success mb-3"
-      [disabled]="showBurgersMenu"
       [class.bg-dark]="showBurgersMenu"
       (click)="showSteaks()"
     >
