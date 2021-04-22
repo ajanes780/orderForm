@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Orders } from 'src/app/models/Orders';
 import { OrderserviceService } from '../../services/orderervice.service';
+import { ControlContainer, NgForm } from '@angular/forms';
 
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-specialreq',
   templateUrl: './specialreq.component.html',
   styleUrls: ['./specialreq.component.scss'],
+  viewProviders: [{ provide: ControlContainer, useExisting: NgForm }],
 })
 export class SpecialreqComponent implements OnInit {
   orders: Orders[];

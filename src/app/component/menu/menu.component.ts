@@ -94,6 +94,5 @@ export class MenuComponent implements OnInit {
     this.submitted = !this.submitted;
     console.log(`value`, value);
     console.log('this is order', this.order);
-    this.form.reset();
   }
 }
