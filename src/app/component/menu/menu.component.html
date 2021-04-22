@@ -3,6 +3,7 @@
     <Button
       class="btn btn-success btn-lg mb-3"
       [disabled]="showSteakMenu"
+      [class.bg-dark]="showSteakMenu"
       (click)="showBurgers()"
     >
       Burgers
@@ -10,6 +11,7 @@
     <Button
       class="btn btn-lg btn-success mb-3"
       [disabled]="showBurgersMenu"
+      [class.bg-dark]="showBurgersMenu"
       (click)="showSteaks()"
     >
       Steaks
@@ -38,6 +40,8 @@
           type="button"
           class="btn btn-success btn-lg mb-3"
           (click)="showFries()"
+          [disabled]="salads"
+          [class.bg-dark]="salads"
         >
           Fries
         </Button>
@@ -45,6 +49,8 @@
           type="button"
           class="btn btn-success btn-lg mb-3"
           (click)="showSalads()"
+          [disabled]="fires"
+          [class.bg-dark]="fries"
         >
           Salads
         </Button>
@@ -52,6 +58,9 @@
           type="button"
           class="btn btn-success btn-lg mb-3"
           (click)="showPotato()"
+          [disabled]="showBurgersMenu"
+          [class.bg-dark]="showSteakMenu"
+          required
           *ngIf="showSteakMenu"
         >
           Baked Potato
