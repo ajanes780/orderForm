@@ -1,9 +1,17 @@
 <div class="wrapper-menu">
   <div class="btn-wrapper">
-    <Button class="btn btn-success btn-lg mb-3" (click)="showBurgers()">
+    <Button
+      class="btn btn-success btn-lg mb-3"
+      [disabled]="showSteakMenu"
+      (click)="showBurgers()"
+    >
       Burgers
     </Button>
-    <Button class="btn btn-lg btn-success mb-3" (click)="showSteaks()">
+    <Button
+      class="btn btn-lg btn-success mb-3"
+      [disabled]="showBurgersMenu"
+      (click)="showSteaks()"
+    >
       Steaks
     </Button>
   </div>
@@ -72,46 +80,56 @@
   <div class="card card-body mb-3" *ngIf="showBurgersMenu || showSteakMenu">
     <app-specialreq></app-specialreq>
   </div>
-</form>
 
-<div class="order-form card card-body" *ngIf="showBurgersMenu || showSteakMenu">
-  <div class="background-color-wrapper">
-    <h3>Is that everything for you today ?</h3>
-    <h3>Your Current Order</h3>
+  <div
+    class="order-form card card-body"
+    *ngIf="showBurgersMenu || showSteakMenu"
+  >
+    <div class="background-color-wrapper">
+      <h3>Is that everything for you today ?</h3>
+      <h3>Your Current Order</h3>
+    </div>
+    Order: {{ orderNumber.order }}
+
+    <ul class="list-group">
+      <li class="list-group-item">
+        {{ order.burgerType }} {{ order.ketchup ? "ketchup" : "" }}&nbsp;
+        {{ order.mustard ? "Mustard" : "" }}&nbsp;
+        {{ order.lettuce ? "Lettuce" : "" }}&nbsp;
+        {{ order.tomato ? "Tomato" : "" }}&nbsp; {{ order.burgerType ? "X" : ""
+        }}{{ order.howMany }}
+      </li>
+      <li class="list-group-item" *ngIf="order.steakType">
+        {{ order.steakType }}&nbsp;{{ order.doneness }}
+        {{ order.steakType ? "X" : "" }} {{ order.howManySteaks }}
+      </li>
+      <li class="list-group-item" *ngIf="order.nameOfSide">
+        {{ order.nameOfSide }} {{ order.nameOfSide ? " With" : "" }}
+        {{ order.dressingType }}
+      </li>
+      <li class="list-group-item" *ngIf="order.nameOfFries">
+        {{ order.nameOfFries }} {{ order.nameOfFries ? "X " : "" }}
+        {{ order.howManyFries }}
+      </li>
+      <li class="list-group-item" *ngIf="order.bakedPotatoInstructions">
+        {{ order.bakedPotatoInstructions ? " Baked Potato X" : "" }}
+        {{ order.bakedPotatoInstructions }}
+      </li>
+      <li class="list-group-item" *ngIf="order.specialInstructions">
+        {{
+          order.specialInstructions
+            ? "Your Special instructions are important to us will make sure we take care of  "
+            : ""
+        }}
+        {{ order.specialInstructions }}
+      </li>
+    </ul>
+    <Button
+      type="submit"
+      [disabled]="menuForm.invalid"
+      class="btn btn-success btn-lg mb-3"
+    >
+      Submit Your Order
+    </Button>
   </div>
-  Order: {{ orderNumber.order }}
-
-  <ul class="list-group">
-    <li class="list-group-item">
-      {{ order.burgerType }} {{ order.ketchup ? "ketchup" : "" }}&nbsp;
-      {{ order.mustard ? "Mustard" : "" }}&nbsp;
-      {{ order.lettuce ? "Lettuce" : "" }}&nbsp;
-      {{ order.tomato ? "Tomato" : "" }}&nbsp; {{ order.burgerType ? "X" : ""
-      }}{{ order.howMany }}
-    </li>
-    <li class="list-group-item">
-      {{ order.steakType }}&nbsp;{{ order.doneness }}
-      {{ order.steakType ? "X" : "" }} {{ order.howManySteaks }}
-    </li>
-    <li class="list-group-item">
-      {{ order.nameOfSide }} {{ order.nameOfSide ? " With" : "" }}
-      {{ order.dressingType }}
-    </li>
-    <li class="list-group-item">
-      {{ order.nameOfFries }} {{ order.nameOfFries ? "X " : "" }}
-      {{ order.howManyFries }}
-    </li>
-    <li class="list-group-item">
-      {{ order.bakedPotatoInstructions ? " Baked Potato X" : "" }}
-      {{ order.bakedPotatoInstructions }}
-    </li>
-    <li class="list-group-item">
-      {{
-        order.specialInstructions
-          ? "Your Special instructions are important to us will make sure we take care of  "
-          : ""
-      }}
-      {{ order.specialInstructions }}
-    </li>
-  </ul>
-</div>
+</form>

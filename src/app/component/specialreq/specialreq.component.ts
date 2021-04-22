@@ -36,7 +36,7 @@ export class SpecialreqComponent implements OnInit {
   }
 
   open(content) {
-    if (this.order.burgerType === '' || this.order.steakType === '') {
+    if (this.order.burgerType === '') {
       // Totally should build another pop up with more time
       alert('Please make a selection ');
     } else {

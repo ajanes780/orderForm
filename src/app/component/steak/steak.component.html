@@ -10,6 +10,7 @@
     name="steakType"
     id=""
     class="form-control"
+    [class.bg-success]="order.steakType"
     required
   >
     <option>Porter House</option>
@@ -26,6 +27,7 @@
     name="doneness"
     id=""
     class="input-group-prepend"
+    [class.bg-success]="order.doneness"
     required
   >
     <option>Rare</option>
@@ -40,9 +42,10 @@
         menuSteakSelectorAmount.errors && menuSteakSelectorAmount.touched
     }"
     #menuSteakSelectorAmount="ngModel"
-    name="HowManySalads"
+    name="HowManySteaks"
     class="form-control-prepend"
-    id="frieSlectorAmount"
+    id="steakSlectorAmount"
+    [class.bg-success]="order.howManySteaks"
     required
   >
     <option>0</option>

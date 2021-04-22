@@ -84,7 +84,8 @@ export class MenuComponent implements OnInit {
   }
 
   // logic to submit for now just logs order object
-  onSubmit({ value }) {
+  onSubmit({ value, valid }: { value: Orders; valid: boolean }) {
+    console.log(`value`, value);
     console.log('this is order', this.order);
     this.form.reset();
   }
