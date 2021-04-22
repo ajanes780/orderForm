@@ -1,5 +1,7 @@
 <div class="form-group">
-  <h3>Any Special Requests</h3>
+  <div class="background-color-wrapper">
+    <h3>Any Special Requests</h3>
+  </div>
   <textarea
     [(ngModel)]="order.specialInstructions"
     name="specialInstructions"
@@ -19,6 +21,7 @@
   Submit Your Order
 </Button>
 
+<!--  Completed  order model  -->
 <ng-template #mymodal let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Thank You For Your Order</h4>
@@ -32,7 +35,6 @@
     </button>
   </div>
   <div class="modal-body">
-    Order: {{ orderNumber.order }}
     <ul class="list-group">
       <li class="list-group-item">
         {{ order.burgerType }} {{ order.ketchup ? "ketchup" : "" }}&nbsp;
@@ -41,7 +43,6 @@
         {{ order.tomato ? "Tomato" : "" }}&nbsp; {{ order.burgerType ? "X" : ""
         }}{{ order.howMany }}
       </li>
-
       <li class="list-group-item">
         {{ order.steakType }}{{ order.doneness }}
         {{ order.SteakType ? " X" : "" }} {{ order.howManySteaks }}

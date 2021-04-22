@@ -75,8 +75,10 @@
 </form>
 
 <div class="order-form card card-body" *ngIf="showBurgersMenu || showSteakMenu">
-  <h3>Is that everything for you today ?</h3>
-  <h3>Your Current Order</h3>
+  <div class="background-color-wrapper">
+    <h3>Is that everything for you today ?</h3>
+    <h3>Your Current Order</h3>
+  </div>
   Order: {{ orderNumber.order }}
 
   <ul class="list-group">
@@ -88,8 +90,8 @@
       }}{{ order.howMany }}
     </li>
     <li class="list-group-item">
-      {{ order.steakType }}{{ order.doneness }}
-      {{ order.SteakType ? " X" : "" }} {{ order.howManySteaks }}
+      {{ order.steakType }}&nbsp;{{ order.doneness }}
+      {{ order.steakType ? "X" : "" }} {{ order.howManySteaks }}
     </li>
     <li class="list-group-item">
       {{ order.nameOfSide }} {{ order.nameOfSide ? " With" : "" }}

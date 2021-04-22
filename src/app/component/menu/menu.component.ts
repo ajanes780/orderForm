@@ -12,10 +12,10 @@ export class MenuComponent implements OnInit {
   order: Orders = {
     burgerType: '',
     howMany: null,
-    ketchup: null,
-    mustard: null,
-    lettuce: null,
-    tomato: null,
+    ketchup: false,
+    mustard: false,
+    lettuce: false,
+    tomato: false,
     steakType: '',
     doneness: '',
     nameOfSide: '',
@@ -33,7 +33,7 @@ export class MenuComponent implements OnInit {
   potato: boolean = false;
   orderNumber: any = { order: '' };
   @ViewChild('menuForm') form: any;
-  title = 'appBootstrap';
+
   constructor(private orderService: OrderserviceService) {}
 
   ngOnInit() {
@@ -84,9 +84,9 @@ export class MenuComponent implements OnInit {
   }
 
   onSubmit({ value }) {
-    console.log('this is value ', value);
+    // console.log('this is value ', value);
     console.log('this is order', this.order);
-    this.orders.unshift(value);
+    // this.orders.unshift(this.order);
     this.form.reset();
   }
 }

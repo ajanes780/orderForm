@@ -13,10 +13,10 @@ export class SpecialreqComponent implements OnInit {
   order: Orders = {
     burgerType: '',
     howMany: null,
-    ketchup: null,
-    mustard: null,
-    lettuce: null,
-    tomato: null,
+    ketchup: false,
+    mustard: false,
+    lettuce: false,
+    tomato: false,
     steakType: '',
     doneness: '',
     nameOfSide: '',
@@ -36,6 +36,11 @@ export class SpecialreqComponent implements OnInit {
   }
 
   open(content) {
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
+    if (this.order.burgerType === '' || this.order.steakType === '') {
+      // Totally should build another pop up with more time
+      alert('Please make a selection ');
+    } else {
+      this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
+    }
   }
 }

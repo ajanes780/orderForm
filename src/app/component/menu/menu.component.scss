@@ -21,16 +21,26 @@
   flex-direction: column;
   justify-content: center;
 
-  button {
+  Button {
     margin: 20px;
     animation: bounce 2s ease;
     animation-iteration-count: infinite;
     width: 30%;
     border: beige;
-    background-color: hsla(241, 41%, 43%, 0.424);
+    background-color: rgba(106, 105, 182, 0.671);
   }
 }
 
+.card-body {
+  background-color: transparent;
+}
+
+.background-color-wrapper {
+  background-color: whitesmoke;
+  opacity: 80%;
+  color: black;
+}
 .list-group-item {
   display: flex;
+  color: black;
 }

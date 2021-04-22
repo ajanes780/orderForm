@@ -13,10 +13,10 @@ export class OrderserviceService {
   order: Orders = {
     burgerType: '',
     howMany: null,
-    ketchup: null,
-    mustard: null,
-    lettuce: null,
-    tomato: null,
+    ketchup: false,
+    mustard: false,
+    lettuce: false,
+    tomato: false,
     steakType: '',
     doneness: '',
     nameOfSide: '',
@@ -41,10 +41,6 @@ export class OrderserviceService {
     this.potato = false;
   }
 
-  getData() {
-    this.data = new Observable((observable) => {});
-    return this.data;
-  }
   // update and change
   getSaladStatus(): Observable<any> {
     return of(this.salads);
