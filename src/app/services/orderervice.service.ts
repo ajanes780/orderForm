@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { faLeaf } from '@fortawesome/free-solid-svg-icons';
 import { Orders } from '../models/Orders';
 import { of } from 'rxjs';
-// import { Observable } from 'rxjs/Observable';
 import { Observable } from 'rxjs';
+
+/*
+This is the data service for the app currently not using observables but can be wired up as needed. The service seems to okay for when there is only one user
+*/
 @Injectable({
   providedIn: 'root',
 })
@@ -41,11 +43,12 @@ export class OrderserviceService {
     this.potato = false;
   }
 
-  // update and change
-  getSaladStatus(): Observable<any> {
-    return of(this.salads);
+  //  this we can use if needed
+  getOrderStatus(): Observable<any> {
+    return of(this.orders);
   }
 
+  // update and change helper functions
   changeSaladStats() {
     console.log('here');
     this.salads = !this.salads;
