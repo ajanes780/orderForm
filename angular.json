@@ -23,7 +23,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": ["src/favicon.ico", "src/assets", "src/_redirects"],
             "styles": ["src/styles.scss"],
             "scripts": []
           },
@@ -107,6 +107,14 @@
             "production": {
               "devServerTarget": "enjineApp:serve:production"
             }
+          }
+        },
+        "deploy": {
+          "builder": "@netlify-builder/deploy:deploy",
+          "options": {
+            "outputPath": "dist/enjineApp",
+            "netlifyToken": "",
+            "siteId": "40845705-202f-4c00-aa38-45b2c45c0762"
           }
         }
       }

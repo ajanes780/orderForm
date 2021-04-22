@@ -83,10 +83,9 @@ export class MenuComponent implements OnInit {
     this.potato = false;
   }
 
+  // logic to submit for now just logs order object
   onSubmit({ value }) {
-    // console.log('this is value ', value);
     console.log('this is order', this.order);
-    // this.orders.unshift(this.order);
     this.form.reset();
   }
 }
